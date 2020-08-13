@@ -31,7 +31,7 @@ function App() {
   return (
     <div className="App">
         {movies.map(movie =>{
-            return <Movie key={movie.id} title={movie.title} />
+            return <Movie key={movie.id} title={movie.title} poster={movie.poster}/>
         })}
     </div>
   );
