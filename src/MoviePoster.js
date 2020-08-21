@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const MoviePoster = ({poster, alt}) => {
     return (
-        <img src={poster} alt={alt} />
+        <img src={poster} alt={alt} className={"Movie__Poster"}/>
     );
 };
 

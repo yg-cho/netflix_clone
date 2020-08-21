@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+// import axios from "axios";
 import './App.css';
 import Movie from './Movie';
 
@@ -12,6 +12,7 @@ class App extends Component {
     componentDidMount(){
         this._getMovies()
     }
+
 
     renderingMovies = () => {
         const movies = this.state.movies.map(movie => {
@@ -29,9 +30,14 @@ class App extends Component {
 
     _callApi = () => {
      return fetch('https://yts.mx/api/v2/list_movies.json?sort_by=download_count')
-         .then(data=> data.json())
-         .then(json=> json.data.movies)
-         .catch(err => console.log(err))
+        //return fetch('https://infinite-temple-98801.herokuapp.com/post/total')
+            .then(data=> data.json())
+            .then(json=>  json.data.movies)
+            .catch(err => console.log(err))
+        // axios
+        //     .get("https://infinite-temple-98801.herokuapp.com/post/total")
+        //     .then(json=> console.log(json))
+        //     .catch(err => console.log(err))
     }
 
 

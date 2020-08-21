@@ -2,19 +2,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import MoviePoster from "./MoviePoster";
-
-
+import "./Movie.css"
+import MovieGenre from "./MovieGenre";
+import LinesEllipsis from 'react-lines-ellipsis';
 
 const Movie = ({title, poster, genres, synopsis }) => {
     return (
-        <div>
-            <MoviePoster poster={poster} alt={title} />
+        <div className ="Movie">
+            <div className="Movie__Column">
+                <MoviePoster poster={poster} alt={title} />
+            </div>
+            <div className="Movie__Column">
+                <h1>{title}</h1>
+                <div className="Movie__Genres">
+                    {/*{genres.map((genre, index) => <MovieGenre genre={genre} key={index} />)}*/}
+                </div>
+                <div calssName="Movie__Synopsis">
+                    <LinesEllipsis
+                        text={synopsis}
+                        maxLine='3'
+                        ellipsis='...'
+                        trimRight
+                        basedOn='letters'
+                    />
+                </div>
+            </div>
 
-            <h1>{title}</h1>
-            <h6>{synopsis}</h6>
+
         </div>
     );
 };
+
 
 Movie.propTypes = {
     title : PropTypes.string.isRequired,
@@ -24,3 +42,5 @@ Movie.propTypes = {
 };
 
 export default Movie;
+
+
